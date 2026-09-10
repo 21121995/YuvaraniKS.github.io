@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yuvarani KS — Interdisciplinary Engineer</title>
+<meta name="description" content="Portfolio of Yuvarani KS — microfluidics, embedded systems, and diagnostics engineering.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F4F3F1;
+    --panel: #FFFFFF;
+    --ink: #1C1C1B;
+    --ink-soft: #5B5B58;
+    --line: #DDDBD6;
+    --slate: #4F5D5E;
+    --slate-soft: #E9EDEC;
+    --taupe: #8C7A63;
+    --taupe-soft: #F1ECE4;
+    --serif: 'Fraunces', serif;
+    --sans: 'IBM Plex Sans', system-ui, sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a{ color: var(--slate); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover{ color: var(--taupe); }
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--taupe);
+    outline-offset: 3px;
+  }
+  .wrap{
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+  header.top{
+    padding: 22px 0 0;
+  }
+  .top-nav{
+    display:flex; gap: 22px; flex-wrap: wrap;
+    font-size: 0.9rem;
+  }
+  .top-nav a{ color: var(--ink-soft); }
+  .top-nav a:hover{ color: var(--slate); }
+
+  /* Hero */
+  .hero{
+    padding: 64px 0 40px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 32px;
+    align-items: end;
+  }
+  .hero h1{
+    font-family: var(--serif);
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: clamp(2.6rem, 5vw, 3.8rem);
+    line-height: 1.03;
+    margin: 0 0 18px;
+    letter-spacing: -0.01em;
+  }
+  .hero .role{
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--slate);
+    letter-spacing: 0.02em;
+    margin: 0 0 20px;
+  }
+  .hero p.lede{
+    max-width: 56ch;
+    font-size: 1.08rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .hero-sig{
+    width: 100%;
+    height: auto;
+  }
+  .hero-sig path{
+    fill: none;
+    stroke: var(--slate);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 900;
+    stroke-dashoffset: 900;
+    animation: draw 2.2s ease-out forwards 0.2s;
+  }
+  .hero-sig .pulse{ stroke: var(--taupe); }
+  @keyframes draw{ to{ stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce){
+    .hero-sig path{ animation: none; stroke-dashoffset: 0; }
+  }
+
+  .stat-row{
+    display:flex; gap: 30px; flex-wrap: wrap;
+    padding: 26px 0 8px;
+    border-top: 1px solid var(--line);
+    margin-top: 26px;
+  }
+  .stat .num{
+    font-family: var(--mono);
+    font-size: 1.3rem;
+    color: var(--taupe);
+    display:block;
+  }
+  .stat .lbl{
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  section{ padding: 46px 0; border-top: 1px solid var(--line); }
+  section:first-of-type{ border-top: none; }
+  h2{
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 0 0 22px;
+  }
+  .prose{ max-width: 66ch; color: var(--ink); }
+  .prose.soft{ color: var(--ink-soft); }
+
+  /* Timeline */
+  .tl-item{
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 18px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .tl-item:last-child{ border-bottom: none; }
+  .tl-date{
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    padding-top: 3px;
+  }
+  .tl-body h3{
+    margin: 0 0 4px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    font-family: var(--sans);
+  }
+  .tl-body .org{
+    color: var(--slate);
+    font-size: 0.92rem;
+    margin: 0 0 8px;
+  }
+  .tl-body ul{
+    margin: 6px 0 0;
+    padding-left: 18px;
+    color: var(--ink-soft);
+    font-size: 0.96rem;
+  }
+  .tl-body li{ margin-bottom: 3px; }
+  .current-tag{
+    display:inline-block;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--slate);
+    background: var(--slate-soft);
+    border-radius: 3px;
+    padding: 1px 6px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  /* Featured project */
+  .project-panel{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 32px;
+  }
+  .project-panel h3{
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0 0 12px;
+    line-height: 1.25;
+  }
+  .project-panel .meta{
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--taupe);
+    margin-bottom: 14px;
+  }
+  .project-panel ul{
+    padding-left: 18px;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+  .cassette-wrap{ text-align:center; margin-top: 26px; }
+  .cassette-svg{ width: 220px; height: auto; }
+  .cassette-cap{
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    margin-top: 8px;
+  }
+
+  /* Skills */
+  .skill-group{ margin-bottom: 24px; }
+  .skill-group h3{
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0 0 10px;
+    color: var(--ink);
+  }
+  .chips{ display:flex; flex-wrap: wrap; gap: 8px; }
+  .chip{
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    background: var(--panel);
+  }
+  .chip.slate{ border-color: #E3C6C9; background: #F7EBEC; color: #A9727A; }
+  .chip.taupe{ border-color: #E3C6C9; background: #F7EBEC; color: #A9727A; }
+
+  /* Education / awards */
+  .edu-item{ margin-bottom: 20px; }
+  .edu-item h3{ margin:0 0 2px; font-size: 1.02rem; font-weight: 600; }
+  .edu-item .org{ color: var(--slate); font-size: 0.92rem; }
+  .edu-item .meta{ font-family: var(--mono); font-size: 0.78rem; color: var(--ink-soft); margin-top: 2px; }
+
+  ul.awards{ padding-left: 18px; color: var(--ink-soft); }
+  ul.awards li{ margin-bottom: 6px; }
+
+  .divider-sig{ width: 140px; height: 24px; display:block; margin: 0 auto; opacity: 0.6; }
+  .divider-sig path{ fill:none; stroke: var(--ink-soft); stroke-width: 1.4; }
+
+  footer{
+    padding: 46px 0 60px;
+    text-align: center;
+  }
+  footer .langs{ color: var(--ink-soft); font-size: 0.92rem; margin-bottom: 18px; }
+  footer .contact a{ margin: 0 10px; font-size: 0.98rem; }
+  footer .loc{ margin-top: 14px; color: var(--ink-soft); font-size: 0.85rem; font-family: var(--mono); }
+
+  @media (max-width: 720px){
+    .hero{ grid-template-columns: 1fr; }
+    .tl-item{ grid-template-columns: 1fr; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-nav">
+    <a href="#experience">Experience</a>
+    <a href="#project">Featured project</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero" style="border-top:none;">
+    <div>
+      <p class="role">Interdisciplinary Engineer — Freiburg, Germany</p>
+      <h1>Yuvarani KS</h1>
+      <p class="lede">Four years shipping enterprise software, then three years of university research spanning microfluidic diagnostics and sensor systems. My interest sits where diagnostics research, product development, and project management meet.</p>
+    </div>
+    <svg class="hero-sig" viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M0,90 C20,90 25,60 40,60 C55,60 58,95 75,95 C92,95 95,40 112,40 C129,40 132,85 150,85 C168,85 171,55 188,55 C205,55 208,70 225,70 C242,70 246,25 262,25 C278,25 282,65 300,65" />
+      <path class="pulse" d="M0,58 L30,58 L38,20 L46,100 L54,58 L110,58 L118,30 L126,90 L134,58 L300,58" style="opacity:0.4;" />
+    </svg>
+  </section>
+
+  <div class="stat-row">
+    <div class="stat"><span class="num">1–5 ng/mL</span><span class="lbl">TB biomarker limit of detection, LFIA on a microfluidic platform</span></div>
+    <div class="stat"><span class="num">4 yrs</span><span class="lbl">enterprise software, TCS</span></div>
+    <div class="stat"><span class="num">4</span><span class="lbl">research collaborators: IMTEK, LivMats, Fraunhofer ISE, Hahn-Schickard</span></div>
+    <div class="stat"><span class="num">3rd / 227</span><span class="lbl">bachelor's cohort, Anna University</span></div>
+  </div>
+
+  <section id="about">
+    <h2>About</h2>
+    <p class="prose">I trained as an instrumentation and control engineer, then did a master's in embedded systems — and ended up working on both sides of the bench: developing assay protocols and microfluidic hardware one semester, debugging sensor circuits the next. Before returning to research, I spent four years at Tata Consultancy Services shipping front-end and integration work for enterprise clients, which is where I learned to work under real deadlines and hand things off cleanly.</p>
+    <p class="prose soft">My core interest is diagnostics research — turning a working assay into something that actually reaches a patient — and I'm increasingly drawn to the project management and product development side of that: planning, documentation, and the coordination that gets a prototype out of the lab. I'm currently looking for R&amp;D or engineering roles in diagnostics, sensing, or instrumentation where that range is useful.</p>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="tl-item">
+      <div class="tl-date">Jun 2026 — present</div>
+      <div class="tl-body">
+        <h3>Wissenschaftliche Hilfskraft — Master (TENG &amp; Sensor Systems) <span class="current-tag">current</span></h3>
+        <p class="org">LivMats, University of Freiburg</p>
+        <ul>
+          <li>Conduct experimental development and characterization of triboelectric nanogenerator (TENG) systems for vibration energy harvesting and sensing</li>
+          <li>Develop measurement setups, perform systematic testing, and analyse sensor signals using Python (FFT, crest factor, wavelet transforms)</li>
+          <li>Investigate measurement issues and support experimental improvements through structured troubleshooting and data analysis</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">Nov 2024 — Dec 2025</div>
+      <div class="tl-body">
+        <h3>Research Assistant (Bioassay Development / Microfluidics / Biochemistry)</h3>
+        <p class="org">IMTEK, University of Freiburg (in collaboration with Hahn-Schickard)</p>
+        <ul>
+          <li>Master's thesis: led the assay side of a tuberculosis diagnostics project end to end — see featured project below</li>
+          <li>Fluorescence measurements and quantitative ImageJ analysis of assay performance</li>
+          <li>Protocol development and technical documentation</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">May 2024 — Apr 2025</div>
+      <div class="tl-body">
+        <h3>Research Assistant (Material Science)</h3>
+        <p class="org">LivMats, University of Freiburg</p>
+        <ul>
+          <li>COMSOL Multiphysics simulation validated against experimental measurement</li>
+          <li>Material characterization and sensor integration</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">Oct 2022 — Feb 2024</div>
+      <div class="tl-body">
+        <h3>Research Assistant (Web Application Development / Python Scripting)</h3>
+        <p class="org">IMTEK, University of Freiburg</p>
+        <ul>
+          <li>Built a browser-based surface analysis tool for the simulation department in JavaScript, HTML, and CSS Bootstrap</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">Jul 2023 — Nov 2023</div>
+      <div class="tl-body">
+        <h3>Research Assistant (Microscopy &amp; Measurements)</h3>
+        <p class="org">Fraunhofer-Institut für Solare Energiesysteme ISE</p>
+        <ul>
+          <li>Microscopy technique, cleanroom procedure, and precision measurement in a regulated research environment</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">Dec 2017 — May 2022</div>
+      <div class="tl-body">
+        <h3>System Engineer &amp; Application Developer</h3>
+        <p class="org">Tata Consultancy Services, Kochi, India</p>
+        <ul>
+          <li>Built responsive front-end interfaces for Allianz Australia Insurance and a Digi Store Industry 4.0 project, in JavaScript, AngularJS, Java, and Spring Security</li>
+          <li>Coordinated directly with international clients and cross-functional teams under Agile/Scrum</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="project">
+    <h2>Featured project</h2>
+    <div class="project-panel">
+      <p class="meta">master's thesis · IMTEK × Hahn-Schickard</p>
+      <h3>Performance Evaluation of a LAM-based Lateral Flow Assay Integrated with a Centrifugal Microfluidic Platform for Tuberculosis Diagnosis</h3>
+      <p class="prose soft" style="margin-top:0;">Sputum-based TB testing is slow and hard to deploy outside a lab. This project targeted the ULAM biomarker as a non-invasive alternative — integrating a lateral flow immunoassay directly onto a centrifugal microfluidic disk, the first such integration, as a step toward point-of-care tuberculosis diagnosis without a sputum sample.</p>
+      <ul>
+        <li>Optimized assay sensitivity to a limit of detection between 1 and 5 ng/mL</li>
+        <li>Diagnosed root causes of microfluidic flow failures and redesigned the disk geometry and protocol around them</li>
+        <li>Validated with fluorescence microscopy and quantitative ImageJ analysis</li>
+      </ul>
+      <div class="cassette-wrap">
+        <svg class="cassette-svg" viewBox="0 0 220 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="10" y="20" width="200" height="50" rx="8" fill="#FFFFFF" stroke="#5B5B58" stroke-width="1.3"/>
+          <circle cx="40" cy="45" r="12" fill="#F4F3F1" stroke="#5B5B58" stroke-width="1.3"/>
+          <text x="40" y="49" font-family="IBM Plex Mono" font-size="8" text-anchor="middle" fill="#5B5B58">S</text>
+          <rect x="70" y="38" width="122" height="14" fill="#EDEDEA" stroke="#DDDBD6" stroke-width="1"/>
+          <line x1="118" y1="38" x2="118" y2="52" stroke="#8C7A63" stroke-width="2.4"/>
+          <line x1="150" y1="38" x2="150" y2="52" stroke="#5B5B58" stroke-width="2.4"/>
+          <text x="118" y="64" font-family="IBM Plex Mono" font-size="7" text-anchor="middle" fill="#8C7A63">T</text>
+          <text x="150" y="64" font-family="IBM Plex Mono" font-size="7" text-anchor="middle" fill="#5B5B58">C</text>
+        </svg>
+        <p class="cassette-cap">lateral flow test strip — sample, test, control</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+
+    <div class="skill-group">
+      <h3>Bioassay &amp; biochemistry</h3>
+      <div class="chips">
+        <span class="chip slate">lateral flow immunoassay</span>
+        <span class="chip slate">sandwich ELISA</span>
+        <span class="chip slate">EDC/NHS coupling</span>
+        <span class="chip slate">protein handling</span>
+        <span class="chip slate">nucleic acid extraction</span>
+        <span class="chip slate">PCR/qPCR</span>
+        <span class="chip slate">cell culture</span>
+        <span class="chip slate">chromatography</span>
+        <span class="chip slate">electrophoresis</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Microfluidics, microfabrication &amp; instrumentation</h3>
+      <div class="chips">
+        <span class="chip">centrifugal microfluidics</span>
+        <span class="chip">lab-on-disk fabrication</span>
+        <span class="chip">laser cutting &amp; bonding</span>
+        <span class="chip">cleanroom / lithography</span>
+        <span class="chip">3D printing</span>
+        <span class="chip">fluorescence microscopy (ZEISS)</span>
+        <span class="chip">Tecan plate reader</span>
+        <span class="chip">spectrometry</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Sensors, circuits &amp; control</h3>
+      <div class="chips">
+        <span class="chip taupe">TENG / vibration energy harvesting</span>
+        <span class="chip taupe">breadboard circuit prototyping</span>
+        <span class="chip taupe">sensors &amp; transducers</span>
+        <span class="chip taupe">PID / PLC / SCADA</span>
+        <span class="chip taupe">power electronics</span>
+        <span class="chip taupe">microcontrollers</span>
+        <span class="chip taupe">oscilloscope signal analysis</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Software &amp; data</h3>
+      <div class="chips">
+        <span class="chip">Python</span>
+        <span class="chip">MATLAB</span>
+        <span class="chip">Origin</span>
+        <span class="chip">ImageJ / Fiji</span>
+        <span class="chip">FFT &amp; wavelet analysis</span>
+        <span class="chip">JavaScript / AngularJS</span>
+        <span class="chip">Java / Spring Security</span>
+        <span class="chip">REST APIs</span>
+        <span class="chip">SQL</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Simulation &amp; design</h3>
+      <div class="chips">
+        <span class="chip">COMSOL Multiphysics</span>
+        <span class="chip">SolidWorks</span>
+        <span class="chip">ANSYS</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h3>Coordination &amp; project management</h3>
+      <div class="chips">
+        <span class="chip">Agile / Scrum</span>
+        <span class="chip">Jira</span>
+        <span class="chip">SOP &amp; protocol development</span>
+        <span class="chip">technical &amp; scientific writing</span>
+        <span class="chip">timeline &amp; milestone tracking</span>
+        <span class="chip">cross-institutional collaboration</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="edu-item">
+      <h3>Master of Science in Embedded Systems Engineering</h3>
+      <p class="org">Albert-Ludwigs-Universität Freiburg, Germany</p>
+      <p class="meta">May 2022 — Oct 2025 · grade 2.1 (German scale)</p>
+    </div>
+    <div class="edu-item">
+      <h3>Bachelor of Engineering in Instrumentation and Control Engineering</h3>
+      <p class="org">Sri Sairam Engineering College, Anna University, Chennai</p>
+      <p class="meta">Jun 2013 — Apr 2017 · grade 1.6 (German scale) · rank 3rd of 227</p>
+    </div>
+
+    <h2 style="margin-top:36px;">Awards</h2>
+    <ul class="awards">
+      <li>Anna University rank holder — 3rd of 227, Bachelor of Engineering</li>
+      <li>Best Outgoing Girl Student, Anna University, Chennai</li>
+      <li>Best Presenter Award, International Conference on Latest Trends (2016) — nanomedibots for pulmonary arterial hypertension</li>
+    </ul>
+  </section>
+
+</div>
+
+<svg class="divider-sig" viewBox="0 0 140 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <path d="M0,12 C10,12 12,4 20,4 C28,4 30,20 38,20 C46,20 48,8 56,8 C64,8 66,16 74,16 C82,16 84,2 92,2 C100,2 102,18 110,18 C118,18 120,12 140,12"/>
+</svg>
+
+<footer id="contact">
+  <div class="wrap">
+    <p class="langs">Tamil — mother tongue · English — C1 · German — A2/B1 in progress</p>
+    <div class="contact">
+      <a href="mailto:yuvaranikasinathan21@gmail.com">yuvaranikasinathan21@gmail.com</a>
+      <a href="https://linkedin.com/in/yuvakasi" target="_blank" rel="noopener">linkedin.com/in/yuvakasi</a>
+    </div>
+    <p class="loc">Freiburg im Breisgau, Germany</p>
+  </div>
+</footer>
+
+</body>
+</html>
